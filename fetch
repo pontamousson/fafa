@@ -1,0 +1,16 @@
+from fetchai.ledger.api import LedgerApi, TokenApi
+from fetchai.ledger.contract import Contract
+from fetchai.ledger.crypto import Entity, Address
+
+print ("My Fetch.ai Address Generator v1.0")
+
+# this gets us an API connected to the testnet endpoint:
+try:
+    api = LedgerApi(network="testnet")
+except Exception as e:
+    sys.exit(e)
+
+entity = Entity()
+print ("Private key: ", entity.private_key_hex)
+print ("           : ", entity.private_key_bytes)
+print ("    Address: ", Address(entity))
